@@ -6,7 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.1.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
+gem 'rails', '~> 7.0.4'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
 # Use Puma as the app server
@@ -18,6 +18,16 @@ gem 'webpacker', '~> 5.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'bootsnap', '>= 1.4.4', require: false
 
+gem 'devise'
+
+gem 'turbo-rails'
+
+gem 'redis'
+
+gem 'stimulus-rails'
+
+gem 'faker'
+
 group :development, :test do
   # Debugging tool
   gem 'pry-rails'
@@ -25,6 +35,7 @@ group :development, :test do
   gem 'rubocop-rails', '2.13.2'
   gem 'rubocop-rspec', '2.8.0'
   # Tests
+  gem 'faker'
   gem 'rspec-rails', '~> 5.0.0'
 end
 
