@@ -28,6 +28,8 @@ gem 'stimulus-rails'
 
 gem 'faker'
 
+gem 'pry', '~> 0.13.1'
+
 group :development, :test do
   # Debugging tool
   gem 'pry-rails'

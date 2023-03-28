@@ -6,6 +6,36 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-5.times do
-    employee = Employee.create!(email: Faker::Internet.email, password: Faker::Internet.password(min_length: 6))
+Kudo.delete_all
+Employee.delete_all
+
+employees = []
+
+5.times do   
+   employees << Employee.find_or_create_by!( email: Faker::Internet.email) do |employee|
+      employee.password = 'dupablada'
+      employee.encrypted_password = 'dupablada'
+   end
 end
+
+employees.each do |employee|
+  receivers = employees 
+   2.times do      
+         kudo = Kudo.new(title: Faker::Book.title,
+            content: Faker::Lorem.paragraph(sentence_count: 5),
+            giver_id: employee.id,            
+            receiver_id: receivers.sample.id )
+            kudo.giver_id != kudo.receiver.id
+            kudo.save            
+   end 
+end
+   
+
+
+
+
+
+   
+
+   
+    

@@ -1,0 +1,20 @@
+<h1>KUDOS#INDEX</h1>
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Giver</th>
+        <th>Receiver</th>
+    </tr>
+    <% @kudos.each do |kudo| %>
+    <tr>
+        <td><%= kudo.title %></td>
+        <td><%= kudo.content %></td>
+        <td><%= kudo.giver.id %></td>
+        <td><%= kudo.receiver.id %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Create kudo', new_kudo_path(giver_id: current_employee.id) %>
