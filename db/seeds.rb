@@ -19,12 +19,12 @@ employees = []
 end
 
 employees.each do |employee|
-  receivers = employees 
+  receiver_ids = employees.map(&:id) 
    2.times do      
          kudo = Kudo.new(title: Faker::Book.title,
             content: Faker::Lorem.paragraph(sentence_count: 5),
             giver_id: employee.id,            
-            receiver_id: receivers.sample.id )
+            receiver_id: receiver_ids.sample )
             kudo.giver_id != kudo.receiver.id
             kudo.save            
    end 
