@@ -18,15 +18,18 @@ employees = []
    end
 end
 
+receivers=[]
 employees.each do |employee|
-  receivers = employees 
+  receivers = employees
+  receivers.delete(employee)
+
+kudos =[]
    2.times do      
-         kudo = Kudo.new(title: Faker::Book.title,
+         kudo = Kudo.create!(title: Faker::Book.title,
             content: Faker::Lorem.paragraph(sentence_count: 5),
-            giver_id: employee.id,            
+            giver_id: employee.id,                 
             receiver_id: receivers.sample.id )
-            kudo.giver_id != kudo.receiver.id
-            kudo.save            
+         kudos << kudo      
    end 
 end
    
